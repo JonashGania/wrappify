@@ -1,4 +1,4 @@
-export const redirectToSpotifyAuth = (codeChallenge) => {
+export const redirectToSpotifyAuth = (codeChallenge: string) => {
     const clientId = `${import.meta.env.VITE_CLIENT_ID}`;
     const redirectUri = `${import.meta.env.VITE_REDIRECT_URI}`;
     const scope = [

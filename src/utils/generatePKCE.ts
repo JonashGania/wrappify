@@ -1,6 +1,6 @@
 import pkceChallenge from 'pkce-challenge';
 
-const generatePKCE = async () => {
+export const generatePKCE = async () => {
     const challenge = await pkceChallenge();
 
     return {
@@ -9,4 +9,3 @@ const generatePKCE = async () => {
     }
 }
 
-export default generatePKCE
