@@ -20,7 +20,7 @@ const Hero = () => {
     }
 
     return (
-        <div className="w-full mt-24">
+        <section className="w-full h-screen grid place-items-center">
             <div className="flex justify-center items-center text-center flex-col px-4">
                 <Avatar className="w-[80px] h-[80px]">
                     <AvatarImage 
@@ -30,10 +30,10 @@ const Hero = () => {
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <h1 className="text-white text-3xl font-bold my-24">Hi {userProfile.display_name},</h1>
-                <h2 className="text-white font-normal text-2xl">Welcome to your 2024 listening journey</h2>
-                <p className="text-zinc-400 max-w-[480px] w-full mt-4">Every song you streamed has a story to tell—let's rediscover your year in music, one moment at a time.</p>
+                <h2 className="text-white font-normal text-2xl">Welcome to your listerning journey with Spotify!</h2>
+                <p className="text-zinc-300 max-w-[480px] w-full mt-4 mb-24">Every song you streamed has a story to tell—let's rediscover your year in music, one moment at a time.</p>
             </div>
-        </div>
+        </section>
     )
 }
 

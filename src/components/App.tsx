@@ -1,6 +1,7 @@
 import SignIn from "./SignIn"
 import { useAuth } from "../context/AuthProvider"
 import Hero from "./Hero";
+import WrappedSwiper from "./WrappedSwiper";
 
 const App = () => {
     const { login, isAuthenticated } = useAuth();
@@ -9,6 +10,7 @@ const App = () => {
             {isAuthenticated ? (
                 <div className="w-full px-8 py-8">
                     <Hero />
+                    <WrappedSwiper />
                 </div>
             ) : (
                 <SignIn handleSignIn={login}/>

@@ -9,6 +9,25 @@ interface Images {
     width: number,
 }
 
+interface Artist {
+    name: string,
+    id: string,
+}
+
+interface Album {
+    name: string,
+    images: Images[]
+}
+
+interface Track {
+    id: string,
+    name: string,
+    album: Album
+    artists: Artist[],
+    duration_ms: number,
+    popularity: number,
+}
+
 export interface UserProfile {
     country: string,
     display_name: string,
@@ -17,4 +36,12 @@ export interface UserProfile {
     href: string,
     id: string,
     images: Images[],
+}
+
+export interface TopTracks {
+    items: Track[],
+    total: number,
+    limit: number,
+    offset: number,
+    href: string,
 }

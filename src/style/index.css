@@ -64,3 +64,58 @@
     @apply bg-background text-foreground;
   }
 }
+
+.swiper-pagination-bullet {
+  @apply w-[6px] h-[6px] bg-white !important
+}
+
+.swiper-pagination-bullet-active{
+  @apply bg-white !important;
+}
+
+.gradient-card-gray{
+  background: linear-gradient(130deg, rgba(215,215,215,1) 0%, rgb(114, 114, 114) 40%, rgba(60,59,59,0.5) 100%);
+}
+
+.gradient-card-green{
+  background: linear-gradient(180deg, rgba(18,18,18,1) 0%, rgba(21,21,21,0.7) 52%, rgba(29,185,84,0.5) 100%);
+}
+
+.fade-right-up-animation {
+  animation: fade-in-right-and-up 4s ease-out forwards;
+}
+
+.fade-left-animation {
+  animation: fade-left 0.7s ease-out forwards;
+}
+
+
+@keyframes fade-in-right-and-up {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) translateY(28px); 
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0) translateY(28px);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(0) translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(100px)
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

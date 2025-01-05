@@ -85,3 +85,20 @@ export const getUserProfile = async (accessToken: string) => {
         console.error('Error fetching user profile', error)
     }
 }
+
+export const getUserTopTracks = async(timeRange: string, limit: number, accessToken: string) => {
+    try {
+        const response = await axios.get(
+            `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&limit=${limit}`, 
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            }
+        )
+
+        return response.data
+    } catch (error) {
+        console.error('Error fetching user profile', error);
+    }
+}
