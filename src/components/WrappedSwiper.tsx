@@ -3,6 +3,8 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import { useState } from "react";
 import TopSongsLastFourWeeks from "./swiper-slides/Slide1";
 import MostPlayedSong from "./swiper-slides/Slide2";
+import TopSongs from "./swiper-slides/slide3";
+import TopGenres from "./swiper-slides/Slide4";
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -29,6 +31,12 @@ const WrappedSwiper = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <MostPlayedSong isActive={activeIndex === 1}/>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <TopSongs isActive={activeIndex === 2}/>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <TopGenres />
                 </SwiperSlide>
             </Swiper>
         </section>

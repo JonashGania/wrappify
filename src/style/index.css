@@ -81,14 +81,22 @@
   background: linear-gradient(180deg, rgba(18,18,18,1) 0%, rgba(21,21,21,0.7) 52%, rgba(29,185,84,0.5) 100%);
 }
 
+.song-name-container{
+  max-width: calc(100% - 60px);
+  width: 100%;
+}
+
 .fade-right-up-animation {
   animation: fade-in-right-and-up 4s ease-out forwards;
 }
 
 .fade-left-animation {
-  animation: fade-left 0.7s ease-out forwards;
+  animation: fade-left 1s ease-out forwards;
 }
 
+.fade-down-animation {
+  animation: fade-down 0.7s ease-out forwards ;
+}
 
 @keyframes fade-in-right-and-up {
   0% {
@@ -117,5 +125,16 @@
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes fade-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -19,13 +19,22 @@ interface Album {
     images: Images[]
 }
 
-interface Track {
+export interface Track {
     id: string,
     name: string,
     album: Album
     artists: Artist[],
     duration_ms: number,
     popularity: number,
+}
+
+export interface Artists {
+    followers: Followers
+    genres: string[],
+    images: Images[],
+    name: string,
+    popularity: number,
+    id: string,
 }
 
 export interface UserProfile {
@@ -38,8 +47,21 @@ export interface UserProfile {
     images: Images[],
 }
 
+export interface Genres {
+    genre: string,
+    count: number,
+} 
+
 export interface TopTracks {
     items: Track[],
+    total: number,
+    limit: number,
+    offset: number,
+    href: string,
+}
+
+export interface TopArtists {
+    items: Artists[],
     total: number,
     limit: number,
     offset: number,

@@ -99,6 +99,23 @@ export const getUserTopTracks = async(timeRange: string, limit: number, accessTo
 
         return response.data
     } catch (error) {
-        console.error('Error fetching user profile', error);
+        console.error('Error fetching user top tracks', error);
+    }
+}
+
+export const getUserTopArtists = async(timeRange: string, limit: number, accessToken: string) => {
+    try {
+        const response = await axios.get(
+            `https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}&limit=${limit}`, 
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            }
+        )
+
+        return response.data.items
+    } catch (error) {
+        console.error('Error fetching user top artists', error);
     }
 }
