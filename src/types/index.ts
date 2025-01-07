@@ -35,6 +35,8 @@ export interface Artists {
     name: string,
     popularity: number,
     id: string,
+    percentage?: number
+    topTrack?: string,
 }
 
 export interface UserProfile {
