@@ -81,17 +81,36 @@
   background: linear-gradient(180deg, rgba(18,18,18,1) 0%, rgba(21,21,21,0.7) 52%, rgba(29,185,84,0.5) 100%);
 }
 
+.gradient-card-red{
+  background: linear-gradient(180deg, rgba(18,18,18,1) 0%, rgba(21,21,21,0.7) 52%, rgba(243,41,41,0.5) 100%);
+}
+
 .song-name-container{
   max-width: calc(100% - 60px);
   width: 100%;
+}
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  column-gap: 0.5rem;
 }
 
 .fade-right-up-animation {
   animation: fade-in-right-and-up 4s ease-out forwards;
 }
 
+.fade-left-up-animation {
+  animation: fade-in-left-and-up 4s ease-out forwards;
+}
+
 .fade-left-animation {
   animation: fade-left 1s ease-out forwards;
+}
+
+
+.fade-up-animation {
+  animation: fade-up 1s ease-out forwards;
 }
 
 .fade-down-animation {
@@ -117,6 +136,25 @@
   }
 }
 
+@keyframes fade-in-left-and-up {
+  0% {
+    opacity: 0;
+    transform: translateX(100px) translateY(28px); 
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0) translateY(28px);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(0) translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
 @keyframes fade-left {
   0% {
     opacity: 0;
@@ -125,6 +163,18 @@
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100px)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
