@@ -5,6 +5,8 @@ import TopSongsLastFourWeeks from "./swiper-slides/Slide1";
 import MostPlayedSong from "./swiper-slides/Slide2";
 import TopSongs from "./swiper-slides/slide3";
 import TopGenres from "./swiper-slides/Slide4";
+import TopArtist from "./swiper-slides/Slide5";
+import MostStreamedArtists from "./swiper-slides/Slide6";
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -36,7 +38,13 @@ const WrappedSwiper = () => {
                     <TopSongs isActive={activeIndex === 2}/>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <TopGenres />
+                    <TopGenres isActive={activeIndex === 3}/>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <TopArtist isActive={activeIndex === 4}/>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <MostStreamedArtists isActive={activeIndex === 5}/>
                 </SwiperSlide>
             </Swiper>
         </section>
