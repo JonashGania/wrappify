@@ -1,13 +1,16 @@
 import { useAuth } from "@/context/AuthProvider";
 import { useState, useEffect } from "react";
 import { getUserTopTracks, getUserTopArtists } from "@/api";
-import { mapArtistsToGenres, getTopGenres, countTracksPerGenre } from "@/utils/getTopGenres";
+import { mapArtistsToGenres, getTopGenres, countTracksPerGenre, bigArtistsByGenre } from "@/utils/getTopGenres";
 import { Genres } from "@/types";
 import { RadialBar, RadialBarChart, LabelList, ResponsiveContainer } from "recharts";
+import { capitalizeStringWords } from "@/utils/capitalizeEachWord";
 
-const TopGenres = () => {
+const TopGenres = ({ isActive }: { isActive: boolean }) => {
     const { accessToken } = useAuth();
     const [genreCount, setGenreCount] = useState<Genres[]>([]);
+    const [bigArtists, setBigArtists] = useState<string[]>();
+    const [showText, setShowText] = useState(false);
 
     useEffect(() => {
         if (accessToken) {
@@ -19,8 +22,13 @@ const TopGenres = () => {
                     const artistGenreMap = mapArtistsToGenres(topArtists);
                     const genreCountMap = countTracksPerGenre(topTracks.items, artistGenreMap);
                     const topGenres = getTopGenres(genreCountMap);
-
+                    const topGenre = topGenres[0]?.genre;
                     setGenreCount(topGenres)
+
+                    if (topGenre) {
+                        const userBigArtists = bigArtistsByGenre(topArtists, topGenre);
+                        setBigArtists(userBigArtists)
+                    }
                 }
             
             }
@@ -29,22 +37,38 @@ const TopGenres = () => {
         }
     }, [accessToken]);
 
+    useEffect(() => {
+        if (isActive) {
+            const timer = setTimeout(() => {
+                setShowText(true)
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        } else {
+            setShowText(false);
+        }
+    }, [isActive])
+
 
     if (!genreCount || genreCount.length === 0) {
         return <h1>Loading...</h1>;
     }
 
-    const chartData = [
-        { name: genreCount[0]?.genre, value: genreCount[0]?.count, fill: '#1db954' },
-        { name: genreCount[1]?.genre, value: genreCount[1]?.count, fill: '#1db954d9' },
-        { name: genreCount[2]?.genre, value: genreCount[2]?.count, fill: '#1db954b3' },
-        { name: genreCount[3]?.genre, value: genreCount[3]?.count, fill: '#1db95480' },
-        { name: genreCount[4]?.genre, value: genreCount[4]?.count, fill: '#1db95433' },
-    ]
+    const opacityLevels = ['ff', 'd9', 'b3', '80', '33'];
+
+    const chartData = genreCount.map((genre, index) => ({
+        name: genre.genre,
+        value: genre.count,
+        fill: `#1db954${opacityLevels[index]}`  
+    }))
 
     return (
         <div className="w-full px-8 pt-8 pb-16">
-            <h1 className={`text-[35px] text-primary-color font-bold text-center textz`}>Your Top Genres</h1>
+            <h1 
+                className={`text-[35px] text-primary-color font-bold text-center transition-all duration-1000 delay-700 ease-out ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-14'}`}
+            >
+                Your Top Genres
+            </h1>
             <div className="flex gap-4 pt-12">
                 <div className="flex-1">
                     <div className="w-full text-center">
@@ -71,21 +95,29 @@ const TopGenres = () => {
                                 </RadialBar>
                             </RadialBarChart>
                         </ResponsiveContainer>
-                        <span className="text-white font-semibold">
-                            {genreCount[0].genre.charAt(0).toUpperCase() + genreCount[0].genre.slice(1)} is your most streamed genre
+                        <span className="text-white font-semibold max-w-[250px]">
+                            {capitalizeStringWords(genreCount[0].genre)} is your most streamed genre
                         </span>
+                        <p className={`text-zinc-400 max-w-[240px] mx-auto text-sm text-center pt-4 transition duration-700 ${showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+                            You were big on artists like 
+                            <span className="text-white font-medium"> {bigArtists?.join(', ')}</span>
+                        </p>
                     </div>
                 </div>
                 <div className="flex-1 flex justify-center">
-                    <ul className="flex flex-col gap-2 pt-2">
+                    <ul className="flex flex-col gap-2 pt-2 w-full max-w-[250px]">
                         {genreCount.map((genre, index) => (
                             <li 
-                                className="flex items-center gap-4" 
+                                className={`flex items-center gap-4 bg-[#1e1e20] rounded-md px-4 py-3 opacity-0 ${isActive ? 'fade-up-animation' : ''}`}
                                 key={index}
+                                style={{
+                                    animationDelay: `${index * 0.3}s`
+                                }}
+
                             >
                                 <span className="text-gray-300">{index + 1}.</span>
-                                <span className="text-white font-medium text-xl">
-                                    {genre.genre.charAt(0).toUpperCase() + genre.genre.slice(1)}
+                                <span className="text-white font-medium text-lg">
+                                    {capitalizeStringWords(genre.genre)}
                                 </span>
                             </li>
                         ))}
