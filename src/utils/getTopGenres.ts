@@ -28,3 +28,8 @@ export const getTopGenres = (genreCountMap: Record<string, number>) => {
         .slice(0, 5)
         .map(([genre, count]) => ({ genre, count }));
 }
+
+export const bigArtistsByGenre = (artists: Artists[], genre: string) => {
+    const filteredArtists = artists.filter(artist => artist.genres.includes(genre));
+    return filteredArtists.slice(0, 3).map(artist => artist.name);
+}
