@@ -59,7 +59,7 @@ const MostPlayedSong = ({ isActive }: {isActive: boolean}) => {
                                 key={song.id}
                             >
                                 <CardHeader className="py-4">
-                                    <CardTitle className="text-white font-semibold">Your Most Played Song</CardTitle>
+                                    <CardTitle className="text-white font-semibold text-center">Your Most Played Song</CardTitle>
                                 </CardHeader>
                                 <CardContent className="pb-4">
                                     <div className="w-full">
