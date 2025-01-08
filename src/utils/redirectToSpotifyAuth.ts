@@ -5,7 +5,8 @@ export const redirectToSpotifyAuth = (codeChallenge: string) => {
         'user-read-private',
         'user-read-email',
         'user-top-read',
-        'user-read-recently-played'
+        'user-read-recently-played',
+        'playlist-read-private'
     ].join(" ");
     const authUrl = new URL(`${import.meta.env.VITE_AUTH_URL}`);
 
