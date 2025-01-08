@@ -55,7 +55,10 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		boxShadow: {
+			'around-green': '0px 0px 5px 5px #1db9544d'
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
