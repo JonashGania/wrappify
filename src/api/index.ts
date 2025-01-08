@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { TopTracks, Track } from '@/types';
 
 export const fetchAcessToken = async (code: string, codeVerifier: string) => {
     const clientId = `${import.meta.env.VITE_CLIENT_ID}`;
@@ -99,8 +100,7 @@ export const getUserTopTracks = async(timeRange: string, limit: number, accessTo
 
         return response.data
     } catch (error) {
-        console.error('Error fetching user top tracks', error);
-    }
+        console.error('Error fetching user top tracks', error);    }
 }
 
 export const getUserTopArtists = async(timeRange: string, limit: number, accessToken: string) => {
@@ -117,5 +117,19 @@ export const getUserTopArtists = async(timeRange: string, limit: number, accessT
         return response.data.items
     } catch (error) {
         console.error('Error fetching user top artists', error);
+    }
+}
+
+export const getUserPlaylists = async(accessToken: string) => {
+    try {
+        const response = await axios.get('https://api.spotify.com/v1/me/playlists', {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
+        })
+
+        return response.data
+    } catch (error) {
+        console.error('Error fetching user playlists', error)
     }
 }
