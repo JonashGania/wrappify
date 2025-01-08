@@ -77,12 +77,20 @@
   background: linear-gradient(130deg, rgba(215,215,215,1) 0%, rgb(114, 114, 114) 40%, rgba(60,59,59,0.5) 100%);
 }
 
+.gradient-card-indigo-violet {
+  background: linear-gradient(43deg, rgba(9,9,121,1) 0%, rgba(166,21,203,0.8) 50%, rgba(255,170,0,0.7) 100%);
+}
+
+.gradient-card-frost{
+  background: linear-gradient(to right, #000428, #004e92);
+}
+
 .gradient-card-green{
-  background: linear-gradient(180deg, rgba(18,18,18,1) 0%, rgba(21,21,21,0.7) 52%, rgba(29,185,84,0.5) 100%);
+  background: linear-gradient(130deg, rgba(18,18,18,1) 0%, rgba(21,21,21,0.7) 40%, rgba(29, 185, 84, 0.5) 100%);
 }
 
 .gradient-card-red{
-  background: linear-gradient(180deg, rgba(18,18,18,1) 0%, rgba(21,21,21,0.7) 52%, rgba(243,41,41,0.5) 100%);
+  background: linear-gradient(230deg, rgba(18,18,18,1) 0%, rgba(21,21,21,1)  40%, rgba(243,41,41,0.5) 100%);
 }
 
 .song-name-container{
@@ -94,6 +102,22 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   column-gap: 0.5rem;
+}
+
+.masonry-grid{
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 1rem;
+  align-items: start;
+}
+
+.grid-row{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 1rem;
 }
 
 .fade-right-up-animation {
