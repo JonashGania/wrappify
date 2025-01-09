@@ -128,7 +128,7 @@ export const getUserPlaylists = async(accessToken: string) => {
             }
         })
 
-        return response.data
+        return response.data.items
     } catch (error) {
         console.error('Error fetching user playlists', error)
     }
