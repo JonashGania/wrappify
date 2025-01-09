@@ -52,14 +52,18 @@ const TopArtist = ({ isActive }: {isActive: boolean}) => {
     }
 
     return (
-        <div className="flex w-full gap-4 px-8 pb-8 pt-16">
+        <div className="flex flex-col items-center md:items-start md:flex-row w-full gap-4 px-4 md:px-8 pb-8 sm:pt-16">
+            <h1 className={`text-white text-2xl pb-4 text-start md:text-[35px] font-bold leading-8 max-w-[320px] transition duration-1000 delay-500 ease-linear ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-24'}`}
+            >
+                Listened to multiple artists, but one truly stole your heart...
+            </h1>
             <div className="flex-1 flex justify-start">
                 <Tilt
                     glareEnable={true} 
                     glareMaxOpacity={0.1} 
                     scale={1.1} 
                 >
-                    <div className="w-[305px] h-[370px]">
+                    <div className="w-[320px] md:w-[305px] h-[370px]">
                         <Card className={`h-full w-full gradient-card-red border-zinc-700`}>
                             <CardHeader className="py-4">
                                 <CardTitle className="text-white font-semibold text-center">Your Top Artist</CardTitle>
@@ -86,7 +90,7 @@ const TopArtist = ({ isActive }: {isActive: boolean}) => {
                     </div>
                 </Tilt>
             </div>
-            <div className="flex-1 flex justify-end">
+            <div className="flex-1 hidden md:flex justify-end">
                 <div>
                     <h1 className={`text-white text-[35px] font-bold leading-10 max-w-[380px] transition-transform duration-700 ${isActive ? 'fade-left-up-animation': ''}`}
                     >
@@ -100,6 +104,12 @@ const TopArtist = ({ isActive }: {isActive: boolean}) => {
                     </p>
                 </div>
             </div>
+            <p className={`text-zinc-400 font-normal text-start max-w-[320px] leading-6 pt-4 transition duration-700 ${showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+                Your most listened track by
+                <span className="text-white font-semibold"> {topArtist.name} </span>
+                was
+                <span className="text-white font-semibold"> "{topArtist.topTrack}".</span>
+            </p>
         </div>
     )
 }

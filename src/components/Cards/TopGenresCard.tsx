@@ -78,10 +78,6 @@ const TopGenresCard = () => {
                         <li 
                             className={`flex items-center gap-4 bg-[#1e1e20] rounded-md px-4 py-1`}
                             key={index}
-                            style={{
-                                animationDelay: `${index * 0.3}s`
-                            }}
-
                         >
                             <span className="text-gray-300">{index + 1}.</span>
                             <span className="text-white font-medium">

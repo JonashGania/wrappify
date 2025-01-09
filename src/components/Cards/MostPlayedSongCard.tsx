@@ -27,7 +27,7 @@ const MostPlayedSongCard = () => {
                     key={song.id}
                 >
                     <CardHeader className="py-4">
-                        <CardTitle className="text-white font-semibold text-center">Your Most Played Song</CardTitle>
+                        <CardTitle className="text-white font-semibold text-center">Most Played Song</CardTitle>
                     </CardHeader>
                     <CardContent className="pb-4">
                         <div className="w-full">

@@ -20,7 +20,7 @@ const MostStreamedArtistsCard = () => {
 
     return (
         <div className="px-2 pt-4 pb-8 gradient-card-frost rounded-lg w-full">
-            <span className="text-white font-semibold w-full grid place-items-center text-lg">Most Stream Artists</span>
+            <span className="text-white font-semibold w-full grid place-items-center text-lg">Most Streamed Artists</span>
             <div className="mt-4">
                 <TooltipProvider>
                     <div className="flex justify-center">

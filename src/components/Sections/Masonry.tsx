@@ -7,7 +7,7 @@ import MostStreamedArtistsCard from "../Cards/MostStreamedArtistsCard"
 
 const Masonry = () => {
     return (
-        <section className="w-full mt-24">
+        <section className="w-full py-24">
             <div className="masonry-grid">
                 <div className="grid-row">
                     <RecentTopSongCards />

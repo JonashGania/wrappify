@@ -40,17 +40,17 @@ const TopArtistCard = () => {
     return (
         <Card className={`h-full w-full pb-8 gradient-card-red border-zinc-700`}>
             <CardHeader className="py-4">
-                <CardTitle className="text-white font-semibold text-center">Your Top Artist</CardTitle>
+                <CardTitle className="text-white font-semibold text-center">Top Artist</CardTitle>
             </CardHeader>
-            <CardContent className="pb-4">
-                <div className="w-full flex justify-center pt-4">
+            <CardContent>
+                <div className="w-full flex justify-center pt-8">
                     <img 
                         src={topArtist.images[0].url} 
                         alt="artist cover" 
                         className="w-[100px] h-[100px] object-cover rounded-[50%]"
                     />
                 </div>
-                <h2 className="text-gray-200 text-center pt-7">
+                <h2 className="text-gray-200 text-center pt-8">
                     <span className="text-white font-semibold">{topArtist.name} </span>
                     was your Top Artist!
                 </h2>

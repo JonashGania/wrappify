@@ -30,8 +30,8 @@ const TopSongsLastFourWeeks = () => {
 
 
     return (
-        <div className="flex w-full gap-4 px-8 pb-8 pt-16">
-            <div className="flex-1">
+        <div className="flex flex-col items-center sm:items-start sm:flex-row w-full gap-4 px-4 md:px-8 pb-8 sm:pt-16">
+            <div className="flex-1 hidden sm:block">
                 <h1 className={`text-white text-[35px] font-bold leading-10 max-w-[380px] transition-transform duration-700 ${showText ? 'translate-y-0' : 'translate-y-28'}`}>
                     Your Recent Top Songs...
                 </h1>
@@ -39,9 +39,12 @@ const TopSongsLastFourWeeks = () => {
                     These songs ruled your playlist, keeping you on repeat all month long!
                 </p>
             </div>
-            <div className="flex-1 flex justify-end">
+            <h1 className={`text-white text-start w-[300px] block sm:hidden pb-8 text-2xl font-bold leading-10`}>
+                Your Recent Top Songs...
+            </h1>
+            <div className="sm:flex-1 w-full flex justify-center">
                 <Tilt>
-                    <div className="w-[340px] h-[365px] rounded-lg gradient-card-gray px-8 py-8">
+                    <div className="w-[300px] sm:w-[280px] md:w-[340px] h-[365px] rounded-lg gradient-card-gray px-4 md:px-8 py-8">
                         <ul className="flex flex-col w-full gap-5">
                             {topTracks.items.map((track, index) => (
                                 <li className="flex items-center" key={track.id}>
@@ -59,6 +62,9 @@ const TopSongsLastFourWeeks = () => {
                     </div>
                 </Tilt>
             </div>
+            <p className={`text-zinc-300 block text-start w-[300px] sm:hidden font-normal leading-5 pt-8  transition duration-700 ${showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+                These songs ruled your playlist, keeping you on repeat all month long!
+            </p>
         </div>
     )
 }

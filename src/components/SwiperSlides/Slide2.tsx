@@ -33,8 +33,8 @@ const MostPlayedSong = ({ isActive }: {isActive: boolean}) => {
     }
 
     return (
-        <div className="flex w-full gap-4 px-8 pb-8 pt-16">
-            <div className="flex-1">
+        <div className="flex flex-col items-center sm:items-start sm:flex-row w-full gap-4 px-4 md:px-8 pb-8 sm:pt-16">
+            <div className="flex-1 hidden sm:block">
                 <h1 className={`text-white text-[35px] font-bold leading-10 max-w-[380px] transition-transform duration-700  ${isActive ? 'fade-right-up-animation': ''}`}
                 >
                     Played countless songs, but one stood above them all...
@@ -46,13 +46,16 @@ const MostPlayedSong = ({ isActive }: {isActive: boolean}) => {
                     is your most played song!
                 </p>
             </div>
+            <h1 className={`text-white text-2xl text-start font-bold block sm:hidden leading-8 w-[320px] pb-4 transition delay-500 duration-1000 ease-linear ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-24'}`}>
+                Played countless songs, but one stood above them all...
+            </h1>
             <div className="flex-1 flex justify-end">
                 <Tilt
                     glareEnable={true} 
                     glareMaxOpacity={0.1} 
                     scale={1.1} 
                 >
-                    <div className="w-[305px] h-[370px]">
+                    <div className="w-[320px] sm:w-[280px] md:w-[305px] h-[370px]">
                         {topSong.items.map((song) => (
                             <Card
                                 className={`h-full w-full gradient-card-green border-zinc-700`}
@@ -81,6 +84,12 @@ const MostPlayedSong = ({ isActive }: {isActive: boolean}) => {
                     </div>
                 </Tilt>
             </div>
+            <p className={`text-zinc-400 font-normal w-[320px] block sm:hidden leading-5 pt-8 transition duration-700 ${showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+                <span className="text-white font-semibold">{topSong.items[0].name} </span>
+                by 
+                <span className="text-white font-semibold"> {topSong.items[0].artists.map(artist => artist.name).join(', ')} </span>
+                is your most played song!
+            </p>
         </div>
     )
 }

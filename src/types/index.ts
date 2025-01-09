@@ -19,6 +19,17 @@ interface Album {
     images: Images[]
 }
 
+interface PlaylistTracks {
+    href: string,
+    total: number,
+}
+
+interface Owner {
+    id: string,
+    type: string,
+    display_name: string
+}
+
 export interface Track {
     id: string,
     name: string,
@@ -47,6 +58,15 @@ export interface UserProfile {
     href: string,
     id: string,
     images: Images[],
+}
+
+export interface UserPlaylists {
+    description: string,
+    id: string,
+    images: Images[],
+    name: string,
+    owner: Owner
+    tracks: PlaylistTracks,
 }
 
 export interface Genres {

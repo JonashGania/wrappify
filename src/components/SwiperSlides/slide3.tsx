@@ -20,9 +20,9 @@ const TopSongs = ({ isActive }: { isActive: boolean }) => {
     
     
     return (
-        <div className="w-full px-8 pt-8 pb-16">
+        <div className="w-full md:px-8 px-4 pt-8 pb-16">
             <h1 
-                className={`text-[35px] text-primary-color font-bold text-center transition-all duration-1000 delay-700 ease-out ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-14'}`}
+                className={`text-2xl sm:text-[35px] text-primary-color font-bold text-center transition-all duration-1000 delay-700 ease-out ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-14'}`}
             >
                 Your Top Streamed Songs
             </h1>
@@ -30,8 +30,8 @@ const TopSongs = ({ isActive }: { isActive: boolean }) => {
                 <TableHeader className="border-0">
                     <TableRow className="hover:bg-transparent border-b-zinc-700 flex">
                         <TableHead className="text-xl w-10 text-zinc-500">#</TableHead>
-                        <TableHead className="w-[450px] text-zinc-500">Title</TableHead>
-                        <TableHead className="w-[140px] text-zinc-500">Album</TableHead>
+                        <TableHead className="sm:w-[380px] md:w-[450px] text-zinc-500">Title</TableHead>
+                        <TableHead className="hidden sm:block w-[140px] text-zinc-500">Album</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -44,7 +44,7 @@ const TopSongs = ({ isActive }: { isActive: boolean }) => {
                             }}
                         >
                             <TableCell className="text-gray-300 text-lg">{index + 1}.</TableCell>
-                            <TableCell className="flex gap-3 w-full max-w-[450px]">
+                            <TableCell className="flex gap-3 w-full max-w-[280px] sm:max-w-[380px] md:max-w-[450px]">
                                 <div className="w-10 h-10 object-cover">
                                     <img src={track.album.images[0].url} alt="song cover" className="w-full h-full"/>
                                 </div>
@@ -55,7 +55,7 @@ const TopSongs = ({ isActive }: { isActive: boolean }) => {
                                     </span>
                                 </div>
                             </TableCell>
-                            <TableCell className="max-w-[140px]">
+                            <TableCell className="hidden sm:block max-w-[140px]">
                                 <span className="text-zinc-300 whitespace-nowrap overflow-hidden text-ellipsis block w-full">{track.album.name}</span>
                             </TableCell>
                         </TableRow>

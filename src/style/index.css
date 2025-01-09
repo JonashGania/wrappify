@@ -65,12 +65,32 @@
   }
 }
 
+html {
+  @apply scroll-smooth
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#121212]
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded-md
+}
+
 .swiper-pagination-bullet {
   @apply w-[6px] h-[6px] bg-white !important
 }
 
 .swiper-pagination-bullet-active{
   @apply bg-white !important;
+}
+
+.playlist-swiper .swiper-pagination-bullet {
+  display: none;
 }
 
 .gradient-card-gray{
@@ -132,13 +152,17 @@
   animation: fade-left 1s ease-out forwards;
 }
 
+.fade-right-animation {
+  animation: fade-right 1s ease-out forwards;
+}
+
 
 .fade-up-animation {
   animation: fade-up 1s ease-out forwards;
 }
 
 .fade-down-animation {
-  animation: fade-down 0.7s ease-out forwards ;
+  animation: fade-down 1s ease-out forwards ;
 }
 
 @keyframes fade-in-right-and-up {
@@ -183,6 +207,17 @@
   0% {
     opacity: 0;
     transform: translateX(100px)
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px)
   }
   100% {
     opacity: 1;
