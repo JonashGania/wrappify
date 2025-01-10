@@ -12,6 +12,7 @@ interface AuthContextProps {
     accessToken: string | null;
     isAuthenticated: boolean;
     login: () => Promise<void>;
+    logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
@@ -36,6 +37,14 @@ export const AuthProvider = ({ children}: children) => {
         redirectToSpotifyAuth(pkce.codeChallenge);
     }
 
+    const logout = () => {
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        localStorage.removeItem('token_expiration');
+        localStorage.removeItem('code_verifier');
+        setAccessToken(null);
+    }
+
     const handleAuthCallback = async (code: string) => {
         const codeVerifier = localStorage.getItem("code_verifier");
 
@@ -46,7 +55,6 @@ export const AuthProvider = ({ children}: children) => {
 
         try {
             const tokenData = await fetchAcessToken(code, codeVerifier);
-           
             setAccessToken(tokenData.access_token);
         } catch (error) {
             console.error('Failed to fetch tokens', error);
@@ -57,7 +65,9 @@ export const AuthProvider = ({ children}: children) => {
         const handleTokenRefresh = async () => {
             if (isTokenExpired() && localStorage.getItem('refresh_token')) {
                 const token = await refreshAccessToken()
-                setAccessToken(token.access_token);
+                if (token) {
+                    setAccessToken(token.access_token);
+                }
             } else if (isTokenExpired()) {
                 localStorage.removeItem('access_token');
                 localStorage.removeItem('refresh_token');
@@ -95,7 +105,7 @@ export const AuthProvider = ({ children}: children) => {
     }, [isAuthenticated])
 
     return (
-        <AuthContext.Provider value={{ accessToken, isAuthenticated, login }}>
+        <AuthContext.Provider value={{ accessToken, isAuthenticated, login, logout }}>
             {children}
         </AuthContext.Provider>
     )
