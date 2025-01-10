@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { TopTracks, Track } from '@/types';
 
 export const fetchAcessToken = async (code: string, codeVerifier: string) => {
     const clientId = `${import.meta.env.VITE_CLIENT_ID}`;
