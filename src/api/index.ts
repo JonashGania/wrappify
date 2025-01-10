@@ -2,7 +2,10 @@ import axios from 'axios';
 
 export const fetchAcessToken = async (code: string, codeVerifier: string) => {
     const clientId = `${import.meta.env.VITE_CLIENT_ID}`;
-    const redirectUri = `${import.meta.env.VITE_REDIRECT_URI}`;
+    const redirectUri = import.meta.env.MODE === 'development'
+                    ?  `${import.meta.env.VITE_REDIRECT_URI_DEV}`
+                    : `${import.meta.env.VITE_REDIRECT_URI_PROD}`
+                    
     const tokenUrl = `${import.meta.env.VITE_TOKEN_URL}`;
 
     try {
