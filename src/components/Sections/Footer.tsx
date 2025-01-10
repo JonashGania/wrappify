@@ -21,7 +21,7 @@ const Footer = () => {
             <div className=" flex items-start">
                 <div className="flex flex-1 flex-col gap-2">
                     <h1 className="text-white font-bold text-xl">Wrappify</h1>
-                    <p className="text-white text-sm font-medium max-w-[300px]">Check your Spotify data including your Tracks, Artists, Genres and Playlists.</p>
+                    <p className="text-zinc-300 text-sm font-medium max-w-[300px]">Check your Spotify data including your Tracks, Artists, Genres and Playlists.</p>
                 </div>
                 <div className="flex-1 flex justify-end">
                     <div className="flex flex-col gap-2 items-center">

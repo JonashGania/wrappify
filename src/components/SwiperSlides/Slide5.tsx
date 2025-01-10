@@ -53,7 +53,7 @@ const TopArtist = ({ isActive }: {isActive: boolean}) => {
 
     return (
         <div className="flex flex-col items-center md:items-start md:flex-row w-full gap-4 px-4 md:px-8 pb-8 sm:pt-16">
-            <h1 className={`text-white text-2xl pb-4 text-start md:text-[35px] font-bold leading-8 max-w-[320px] transition duration-1000 delay-500 ease-linear ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-24'}`}
+            <h1 className={`text-white block md:hidden text-2xl pb-4 text-start md:text-[35px] font-bold leading-8 max-w-[320px] transition duration-1000 delay-500 ease-linear ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-24'}`}
             >
                 Listened to multiple artists, but one truly stole your heart...
             </h1>
@@ -104,7 +104,7 @@ const TopArtist = ({ isActive }: {isActive: boolean}) => {
                     </p>
                 </div>
             </div>
-            <p className={`text-zinc-400 font-normal text-start max-w-[320px] leading-6 pt-4 transition duration-700 ${showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+            <p className={`text-zinc-400 block md:hidden font-normal text-start max-w-[320px] leading-6 pt-4 transition duration-700 ${showText ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
                 Your most listened track by
                 <span className="text-white font-semibold"> {topArtist.name} </span>
                 was

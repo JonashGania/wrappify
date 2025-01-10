@@ -9,18 +9,12 @@ const Masonry = () => {
     return (
         <section className="w-full py-24">
             <div className="masonry-grid">
-                <div className="grid-row">
-                    <RecentTopSongCards />
-                    <TopGenresCard />
-                </div>
-                <div className="grid-row">
-                    <MostPlayedSongCard />
-                    <TopArtistCard />
-                </div>
-                <div className="grid-row">
-                    <TopSongsCard />
-                    <MostStreamedArtistsCard />
-                </div>
+                <RecentTopSongCards />
+                <MostPlayedSongCard />
+                <TopSongsCard />
+                <TopGenresCard />
+                <TopArtistCard />
+                <MostStreamedArtistsCard />
             </div>
         </section>
     )

@@ -26,15 +26,16 @@ const Playlists = () => {
         <div className="max-w-[1000px] w-full mx-auto pt-16 pb-24">
             <h1 className="text-white font-bold text-3xl mb-6">Playlists</h1>
             <Swiper
-                slidesPerView={6}
+                slidesPerView={'auto'}
                 navigation={true}
                 freeMode={true}
+                centeredSlides={false}
                 modules={[ Navigation, FreeMode ]}
                 className="mySwiper w-full playlist-swiper"
             >
                 {playlists.map((playlist) => (
-                    <SwiperSlide key={playlist.id}>
-                        <div className="max-w-[150px] w-full flex flex-col">
+                    <SwiperSlide key={playlist.id} className="max-w-[150px] mr-6">
+                        <div className="w-full flex flex-col">
                             <div className="w-full">
                                 <img src={playlist.images[0].url} alt="playlist cover" className="w-full h-[150px] object-cover rounded-md"/>
                             </div>
@@ -49,7 +50,6 @@ const Playlists = () => {
                             </div>
                         </div>
                     </SwiperSlide>
-
                 ))}
             </Swiper>
         </div>

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { UserProfile } from "@/types"
 
 const Hero = () => {
-    const { accessToken }  = useAuth()
+    const { accessToken, logout }  = useAuth()
     const [userProfile, setUserProfile] = useState<UserProfile>();
 
     useEffect(() => {
@@ -20,8 +20,16 @@ const Hero = () => {
     }
 
     return (
-        <section className="w-full h-screen grid place-items-center">
-            <div className="flex justify-center items-center text-center flex-col px-4">
+        <section className="w-full h-screen">
+            <div className="flex justify-end">
+                <button 
+                    onClick={logout}
+                    className="hover:bg-primary-color bg-[#21a14e] transition-colors duration-300 px-8 py-2 text-white rounded-3xl"
+                >
+                    Sign out
+                </button>
+            </div>
+            <div className="flex justify-center items-center text-center pt-24 flex-col px-4">
                 <Avatar className="w-[80px] h-[80px]">
                     <AvatarImage 
                         src={userProfile.images[0]?.url} 

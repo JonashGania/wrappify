@@ -15,7 +15,7 @@ const WrappedSwiper = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <section className="w-full mt-16 md:mt-24">
+        <section className="w-full mt-16 md:py-24">
             <Swiper
                 autoplay={{
                     delay: 5000,
@@ -24,7 +24,6 @@ const WrappedSwiper = () => {
                 pagination={{ clickable: true }} 
                 modules={[Pagination, Autoplay]}
                 speed={2000}
-                simulateTouch={false}
                 className="max-w-[1000px] min-h-[580px] mx-auto rounded-xl"
                 onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
             >

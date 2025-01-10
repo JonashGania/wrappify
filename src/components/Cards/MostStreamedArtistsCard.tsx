@@ -50,7 +50,7 @@ const MostStreamedArtistsCard = () => {
                                         <img 
                                             src={artist.images[0].url} 
                                             alt="artist cover" 
-                                            className="w-10 h-10 rounded-full border-2 border-gray-200"
+                                            className="w-10 h-10 rounded-full border-2 border-gray-200 flex-shrink-0"
                                         />
                                         <TooltipTrigger asChild>
                                             <span className="text-zinc-300 group-hover:text-white transition duration-300 font-semibold text-sm whitespace-nowrap text-ellipsis overflow-hidden">{artist.name}</span>

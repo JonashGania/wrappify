@@ -33,7 +33,7 @@ const MostStreamedArtists = ({ isActive }: {isActive: boolean}) => {
                                 <img
                                     src={topArtists[0].images[0].url} 
                                     alt="artist cover" 
-                                    className="w-10 h-10 rounded-full border-2 border-gray-200"
+                                    className="w-10 h-10 rounded-full border-2 border-gray-200 flex-shrink-0"
                                 />
                                 <TooltipTrigger>
                                     <span className="text-white font-semibold overflow-hidden whitespace-nowrap text-ellipsis">{topArtists[0].name}</span>

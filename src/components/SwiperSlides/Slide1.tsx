@@ -49,10 +49,14 @@ const TopSongsLastFourWeeks = () => {
                             {topTracks.items.map((track, index) => (
                                 <li className="flex items-center" key={track.id}>
                                     <div className="text-white text-lg font-bold">{index + 1}.</div>
-                                    <div className="w-10 h-10 object-cover ml-3">
-                                        <img src={track.album.images[0].url} alt="song cover" />
+                                    <div className="w-10 h-10 ml-3 flex-shrink-0">
+                                        <img 
+                                            src={track.album.images[0].url} 
+                                            alt="song cover" 
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
-                                    <div className="flex flex-col gap-[2px] pl-4 max-w-[185px]">
+                                    <div className="flex flex-col gap-[2px] pl-4 overflow-hidden min-w-0">
                                         <span className="text-white font-semibold text-sm whitespace-nowrap overflow-hidden text-ellipsis">{track.name}</span>
                                         <span className="text-zinc-300 font-semibold text-xs whitespace-nowrap overflow-hidden text-ellipsis">{track.artists[0].name}</span>
                                     </div>
