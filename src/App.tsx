@@ -6,7 +6,7 @@ const App = () => {
     const { login, isAuthenticated } = useAuth();
     return (
         <div className="w-full min-h-screen bg-dark-color">
-            {isAuthenticated ? (
+            { isAuthenticated ? (
                 <MainLayout />
             ) : (
                 <AuthLayout handleSignIn={login}/>
