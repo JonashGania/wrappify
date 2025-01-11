@@ -38,8 +38,8 @@ const Hero = () => {
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <h1 className="text-white text-3xl font-bold my-24">Hi {userProfile.display_name},</h1>
-                <h2 className="text-white font-normal text-2xl">Welcome to your listerning journey with Spotify!</h2>
-                <p className="text-zinc-300 max-w-[480px] w-full mt-4 mb-24">Every song you streamed has a story to tell—let's rediscover your year in music, one moment at a time.</p>
+                <h2 className="text-white font-normal text-2xl">Welcome to your listening journey with Spotify!</h2>
+                <p className="text-zinc-300 max-w-[480px] w-full mt-4 mb-24">Every song you streamed has a story to tell—let's rediscover your streaming music, one moment at a time.</p>
             </div>
         </section>
     )
