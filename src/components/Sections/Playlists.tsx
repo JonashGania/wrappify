@@ -1,6 +1,6 @@
 import { useAuth } from "@/context/AuthProvider";
 import { useEffect, useState } from "react";
-import { getUserPlaylists, getUserPlaylistSongs } from "@/api";
+import { getUserPlaylists } from "@/api";
 import { UserPlaylists } from "@/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation } from "swiper/modules";
