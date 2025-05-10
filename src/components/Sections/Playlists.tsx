@@ -7,6 +7,7 @@ import { FreeMode, Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import { Link } from "react-router";
 
 const Playlists = () => {
   const { accessToken } = useAuth();
@@ -21,6 +22,8 @@ const Playlists = () => {
   if (!playlists) {
     return <h1>loading...</h1>;
   }
+
+  console.log(playlists);
 
   return (
     <div className="max-w-[1000px] w-full mx-auto pt-16 pb-24">
@@ -37,11 +40,13 @@ const Playlists = () => {
           <SwiperSlide key={playlist.id} className="max-w-[150px] mr-6">
             <div className="w-full flex flex-col">
               <div className="w-full">
-                <img
-                  src={playlist.images[0].url}
-                  alt="playlist cover"
-                  className="w-full h-[150px] object-cover rounded-md"
-                />
+                <Link to={`/playlists/${playlist.id}`}>
+                  <img
+                    src={playlist.images[0].url}
+                    alt="playlist cover"
+                    className="w-full h-[150px] object-cover rounded-md"
+                  />
+                </Link>
               </div>
               <div className="pt-2 flex flex-col">
                 <span className="text-white">{playlist.name}</span>
