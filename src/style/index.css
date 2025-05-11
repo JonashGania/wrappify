@@ -27,7 +27,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -53,7 +53,7 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 @layer base {
@@ -66,7 +66,7 @@
 }
 
 html {
-  @apply scroll-smooth
+  @apply scroll-smooth;
 }
 
 ::-webkit-scrollbar {
@@ -74,18 +74,18 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-[#121212]
+  @apply bg-[#121212];
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-600 rounded-md
+  @apply bg-gray-600 rounded-md;
 }
 
 .swiper-pagination-bullet {
-  @apply w-[6px] h-[6px] bg-white !important
+  @apply w-[6px] h-[6px] bg-white !important;
 }
 
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
   @apply bg-white !important;
 }
 
@@ -93,38 +93,67 @@ html {
   display: none;
 }
 
-.gradient-card-gray{
-  background: linear-gradient(130deg, rgba(215,215,215,1) 0%, rgb(114, 114, 114) 40%, rgba(60,59,59,0.5) 100%);
+.gradient-card-gray {
+  background: linear-gradient(
+    130deg,
+    rgba(215, 215, 215, 1) 0%,
+    rgb(114, 114, 114) 40%,
+    rgba(60, 59, 59, 0.5) 100%
+  );
 }
 
 .gradient-card-indigo-violet {
-  background: linear-gradient(43deg, rgba(9,9,121,1) 0%, rgba(166,21,203,0.8) 50%, rgba(255,170,0,0.7) 100%);
+  background: linear-gradient(
+    43deg,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(166, 21, 203, 0.8) 50%,
+    rgba(255, 170, 0, 0.7) 100%
+  );
 }
 
-.gradient-card-frost{
+.gradient-card-frost {
   background: linear-gradient(to right, #000428, #004e92);
 }
 
-.gradient-card-green{
-  background: linear-gradient(130deg, rgba(18,18,18,1) 0%, rgba(21,21,21,0.7) 40%, rgba(29, 185, 84, 0.5) 100%);
+.gradient-card-green {
+  background: linear-gradient(
+    130deg,
+    rgba(18, 18, 18, 1) 0%,
+    rgba(21, 21, 21, 0.7) 40%,
+    rgba(29, 185, 84, 0.5) 100%
+  );
 }
 
-.gradient-card-red{
-  background: linear-gradient(230deg, rgba(18,18,18,1) 0%, rgba(21,21,21,1)  40%, rgba(243,41,41,0.5) 100%);
+.gradient-card-red {
+  background: linear-gradient(
+    230deg,
+    rgba(18, 18, 18, 1) 0%,
+    rgba(21, 21, 21, 1) 40%,
+    rgba(243, 41, 41, 0.5) 100%
+  );
 }
 
-.song-name-container{
+.gradient-playlist-tracks {
+  background: linear-gradient(
+    180deg,
+    rgba(120, 113, 108, 0.5) 0%,
+    rgb(29, 29, 29) 10%,
+    rgba(23, 23, 23, 1) 100%
+  );
+}
+
+.song-name-container {
   max-width: calc(100% - 60px);
   width: 100%;
 }
 
-.card-grid{
+.card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: 0.5rem;
 }
 
-.masonry-grid{
+.masonry-grid {
   max-width: 1000px;
   margin: 0 auto;
   width: 100%;
@@ -153,19 +182,18 @@ html {
   animation: fade-right 1s ease-out forwards;
 }
 
-
 .fade-up-animation {
   animation: fade-up 1s ease-out forwards;
 }
 
 .fade-down-animation {
-  animation: fade-down 1s ease-out forwards ;
+  animation: fade-down 1s ease-out forwards;
 }
 
 @keyframes fade-in-right-and-up {
   0% {
     opacity: 0;
-    transform: translateX(-100px) translateY(28px); 
+    transform: translateX(-100px) translateY(28px);
   }
   50% {
     opacity: 1;
@@ -184,7 +212,7 @@ html {
 @keyframes fade-in-left-and-up {
   0% {
     opacity: 0;
-    transform: translateX(100px) translateY(28px); 
+    transform: translateX(100px) translateY(28px);
   }
   50% {
     opacity: 1;
@@ -203,7 +231,7 @@ html {
 @keyframes fade-left {
   0% {
     opacity: 0;
-    transform: translateX(100px)
+    transform: translateX(100px);
   }
   100% {
     opacity: 1;
@@ -214,7 +242,7 @@ html {
 @keyframes fade-right {
   0% {
     opacity: 0;
-    transform: translateX(-100px)
+    transform: translateX(-100px);
   }
   100% {
     opacity: 1;
@@ -222,11 +250,10 @@ html {
   }
 }
 
-
 @keyframes fade-up {
   0% {
     opacity: 0;
-    transform: translateY(100px)
+    transform: translateY(100px);
   }
   100% {
     opacity: 1;
@@ -237,7 +264,7 @@ html {
 @keyframes fade-down {
   0% {
     opacity: 0;
-    transform: translateY(-100px)
+    transform: translateY(-100px);
   }
   100% {
     opacity: 1;
@@ -246,13 +273,13 @@ html {
 }
 
 @media (max-width: 850px) {
-  .masonry-grid{
+  .masonry-grid {
     columns: 2;
   }
 }
 
 @media (max-width: 550px) {
-  .masonry-grid{
+  .masonry-grid {
     columns: 1;
     padding: 0 1.5rem;
   }
