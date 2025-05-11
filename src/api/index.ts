@@ -150,8 +150,8 @@ export const getUserPlaylists = async (accessToken: string) => {
 };
 
 export const getPlaylistMetadata = async (
-  playlistId: string,
-  accessToken: string
+  playlistId: string | undefined,
+  accessToken: string | null
 ) => {
   try {
     const response = await axios.get(
@@ -172,8 +172,8 @@ export const getPlaylistMetadata = async (
 export const getUserPlaylistSongs = async (
   offset: number,
   limit: number,
-  playlistId: string,
-  accessToken: string
+  playlistId: string | undefined,
+  accessToken: string | null
 ) => {
   try {
     const response = await axios.get(
