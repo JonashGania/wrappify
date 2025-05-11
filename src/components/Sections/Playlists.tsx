@@ -23,8 +23,6 @@ const Playlists = () => {
     return <h1>loading...</h1>;
   }
 
-  console.log(playlists);
-
   return (
     <div className="max-w-[1000px] w-full mx-auto pt-16 pb-24">
       <h1 className="text-white font-bold text-3xl mb-6">Playlists</h1>
