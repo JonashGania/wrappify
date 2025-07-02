@@ -97,3 +97,5 @@ export interface TopArtists {
   offset: number;
   href: string;
 }
+
+export type timeRange = "short_term" | "medium_term" | "long_term";
