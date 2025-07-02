@@ -1,67 +1,50 @@
 import { useAuth } from "@/context/AuthProvider";
-import { useState, useEffect } from "react";
-import { getUserTopArtists, getUserTopTracks } from "@/api";
-import { calculateListeningTimePercentage, findMostPlayedTrack } from "@/utils/trackListeningPercentage";
 import { Card, CardHeader, CardTitle, CardContent } from "../ui/card";
-import { Artists } from "@/types";
+import { useTopArtistWithDetails } from "@/hooks/useTopArtistWithDetails";
 
 const TopArtistCard = () => {
-    const { accessToken } = useAuth();
-    const [topArtist, setTopArtist] = useState<Artists>();
+  const { accessToken } = useAuth();
 
-    useEffect(() => {
-        if (accessToken) {
-            const fetchTopArtistWithTrack = async () => {
-                const topTracks = await getUserTopTracks('long_term', 50, accessToken);
-                const artist = await getUserTopArtists('long_term', 1, accessToken);
-                if (topTracks && artist) {
-                    const artistId = artist[0].id;
-                    const percentage = calculateListeningTimePercentage(topTracks.items, artistId);
-                    const topTrack = findMostPlayedTrack(topTracks.items, artistId);
+  const { data: topArtist, isLoading } = useTopArtistWithDetails({
+    accessToken: accessToken || "",
+  });
 
-                    const artistObject = {
-                        ...artist[0],
-                        percentage,
-                        topTrack,
-                    }
+  if (!topArtist) {
+    return <h1>No top artist</h1>;
+  }
 
-                    setTopArtist(artistObject);
-                }
-            }
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
-            fetchTopArtistWithTrack()
-        }
-    }, [accessToken]);
+  return (
+    <Card className={`h-full w-full pb-8 gradient-card-red border-zinc-700`}>
+      <CardHeader className="py-4">
+        <CardTitle className="text-white font-semibold text-center">
+          Top Artist
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="w-full flex justify-center pt-8">
+          <img
+            src={topArtist.images[0].url}
+            alt="artist cover"
+            className="w-[100px] h-[100px] object-cover rounded-[50%]"
+          />
+        </div>
+        <h2 className="text-gray-200 text-center pt-8">
+          <span className="text-white font-semibold">{topArtist.name} </span>
+          was your Top Artist!
+        </h2>
+        {topArtist.percentage !== undefined && (
+          <p className="text-zinc-300 text-sm text-center pt-4 font-medium">
+            You have spent {Math.round(topArtist.percentage)}% of your listening
+            time with {topArtist.name}.
+          </p>
+        )}
+      </CardContent>
+    </Card>
+  );
+};
 
-    if (!topArtist) {
-        return <h1>Loading...</h1>
-    }
-
-    return (
-        <Card className={`h-full w-full pb-8 gradient-card-red border-zinc-700`}>
-            <CardHeader className="py-4">
-                <CardTitle className="text-white font-semibold text-center">Top Artist</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <div className="w-full flex justify-center pt-8">
-                    <img 
-                        src={topArtist.images[0].url} 
-                        alt="artist cover" 
-                        className="w-[100px] h-[100px] object-cover rounded-[50%]"
-                    />
-                </div>
-                <h2 className="text-gray-200 text-center pt-8">
-                    <span className="text-white font-semibold">{topArtist.name} </span>
-                    was your Top Artist!
-                </h2>
-                {topArtist.percentage !== undefined && (
-                    <p className="text-zinc-300 text-sm text-center pt-4 font-medium">
-                        You have spent {Math.round(topArtist.percentage)}% of your listening time with {topArtist.name}.
-                    </p>
-                )}
-            </CardContent>
-        </Card>
-    )
-}
-
-export default TopArtistCard
+export default TopArtistCard;
