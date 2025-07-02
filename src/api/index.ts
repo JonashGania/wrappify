@@ -1,5 +1,5 @@
 import axios from "axios";
-import { TopTracks, TopArtists } from "@/types";
+import { TopTracks, TopArtists, Artists } from "@/types";
 
 export const fetchAcessToken = async (code: string, codeVerifier: string) => {
   const clientId = `${import.meta.env.VITE_CLIENT_ID}`;
@@ -116,7 +116,7 @@ export const getUserTopArtists = async (
   timeRange: string,
   limit: number,
   accessToken: string
-) => {
+): Promise<Artists[] | undefined> => {
   try {
     const response = await axios.get(
       `https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}&limit=${limit}`,
