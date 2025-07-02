@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { getUserTopTracks } from "@/api";
+import { timeRange } from "@/types";
 
 interface UseTopTracksParams {
-  timeRange: "short_term" | "medium_term" | "long_term";
+  timeRange: timeRange;
   limit: number;
   accessToken: string;
 }
