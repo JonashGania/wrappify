@@ -24,7 +24,7 @@ const Playlists = () => {
   }
 
   return (
-    <div className="max-w-[1000px] w-full mx-auto pt-16 pb-24">
+    <section className="max-w-[1000px] w-full mx-auto pt-16 pb-24">
       <h1 className="text-white font-bold text-3xl mb-6">Playlists</h1>
       <Swiper
         slidesPerView={"auto"}
@@ -65,7 +65,7 @@ const Playlists = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </section>
   );
 };
 
