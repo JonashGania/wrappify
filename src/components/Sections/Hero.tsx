@@ -39,7 +39,7 @@ const Hero = () => {
       </div>
       <div className="flex flex-1 justify-center items-center text-center flex-col px-4">
         <Avatar
-          className={`w-[125px] h-[125px] transition-all duration-1000 ease-out ${
+          className={`w-[90px] h-[90px] sm:w-[125px] sm:h-[125px] transition-all duration-1000 ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -53,7 +53,7 @@ const Hero = () => {
           </AvatarFallback>
         </Avatar>
         <h1
-          className={`text-white text-5xl font-bold my-16 transition-all duration-1000 delay-300 ease-out ${
+          className={`text-white text-4xl sm:text-5xl font-bold my-16 transition-all duration-1000 delay-300 ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -61,7 +61,7 @@ const Hero = () => {
           <span className="text-primary-color">{userProfile.display_name}</span>
         </h1>
         <h2
-          className={`text-white font-normal text-2xl transition-all duration-1000 delay-500 ease-out ${
+          className={`text-white font-normal text-xl sm:text-2xl transition-all duration-1000 delay-500 ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
