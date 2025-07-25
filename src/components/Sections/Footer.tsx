@@ -16,7 +16,7 @@ const Footer = () => {
     },
   ];
   return (
-    <footer className="max-w-[1200px] w-full min-h-[100px] mx-auto py-4 mt-16 border-t border-t-zinc-700">
+    <footer className="max-w-[1200px] w-full min-h-[100px] mx-auto py-4 mt-16 border-t border-t-zinc-800">
       <div className=" flex items-start">
         <div className="flex flex-1 flex-col gap-2">
           <h1 className="text-white font-bold text-xl">Wrappify</h1>
@@ -27,7 +27,7 @@ const Footer = () => {
         </div>
         <div className="flex-1 flex justify-end">
           <div className="flex flex-col gap-2 items-center">
-            <span className="text-zinc-400 font-semibold">Connect</span>
+            <span className="text-gray-200 font-semibold">Connect</span>
             <div className="flex gap-2">
               {contacts.map((item, index) => (
                 <a
@@ -45,7 +45,10 @@ const Footer = () => {
       </div>
       <div className="pt-4">
         <p className="text-gray-300 text-sm text-center">
-          Developed by Jonash Gaña
+          Developed by{" "}
+          <span className="py-0.5 px-2 rounded-full bg-gray-200 text-zinc-900 font-medium">
+            Jonash Gaña
+          </span>
         </p>
         <p className="text-gray-300 text-sm text-center">
           &copy; Copyright 2025, All rights reserved.
