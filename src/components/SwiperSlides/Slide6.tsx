@@ -62,9 +62,8 @@ const MostStreamedArtists = ({ isActive }: { isActive: boolean }) => {
             {topArtists.slice(1, 9).map((artist, index) => (
               <Tooltip key={artist.id}>
                 <div
-                  className={`flex items-center gap-3 py-3 sm:px-5 transition duration-300 sm:hover:bg-[#1db95433] rounded-lg group opacity-0 ${
-                    isActive ? "fade-left-animation" : ""
-                  }`}
+                  className={`flex items-center gap-3 py-3 sm:px-5 transition duration-300 sm:hover:bg-[#1db95433] rounded-lg group opacity-0 
+                      ${isActive ? "fade-left-animation" : ""}`}
                   style={{
                     animationDelay: `${index * 0.1}s`,
                   }}
