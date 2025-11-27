@@ -48,9 +48,9 @@ const MostStreamedArtists = ({ isActive }: { isActive: boolean }) => {
                   className="w-10 h-10 rounded-full border-2 border-gray-200 flex-shrink-0"
                 />
                 <TooltipTrigger>
-                  <span className="text-white font-semibold overflow-hidden whitespace-nowrap text-ellipsis">
+                  <h2 className="text-white font-semibold text-sm whitespace-nowrap text-ellipsis overflow-hidden max-w-[100px]">
                     {topArtists[0].name}
-                  </span>
+                  </h2>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{topArtists[0].name}</p>
